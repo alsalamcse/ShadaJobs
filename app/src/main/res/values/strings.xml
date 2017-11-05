@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ShadaJobs</string>
+    <string name="log">כניסה כ:</string>
+    <string name="Worker">Worker</string>
+    <string name="Employer">Employer</string>
+    <string name="title_activity_main_list">MainListActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_employer_list">EmployerList</string>
+    <string name="Age">AGE:</string>
+    <string name="MyAge">my age</string>
+    <string name="city">City</string>
+</resources>
