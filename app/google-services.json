@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "906997259555",
+    "firebase_url": "https://shadajobs-ada76.firebaseio.com",
+    "project_id": "shadajobs-ada76",
+    "storage_bucket": "shadajobs-ada76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906997259555:android:05a9007864ab855f",
+        "android_client_info": {
+          "package_name": "om.hsarme.shada.shadajobs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "906997259555-cb5m78iikomcjo0blvac0n6kqhr8303t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "om.hsarme.shada.shadajobs",
+            "certificate_hash": "013f43c9a5d380c46de43c04644418dbe5d2a253"
+          }
+        },
+        {
+          "client_id": "906997259555-2oi8g8j748nlapereai0feplp886tulm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACvqToAA1P9rjkjWLMKUsnSxuWwa-N-vw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "906997259555-2oi8g8j748nlapereai0feplp886tulm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
