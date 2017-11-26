@@ -13,4 +13,8 @@
     <string name="Age">AGE:</string>
     <string name="MyAge">my age</string>
     <string name="city">City</string>
+    <string name="work">work</string>
+    <string name="location">location</string>
+    <string name="company">company</string>
+    <string name="age">age</string>
 </resources>
