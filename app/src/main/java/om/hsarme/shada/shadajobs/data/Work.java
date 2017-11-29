@@ -5,5 +5,8 @@ package om.hsarme.shada.shadajobs.data;
  */
 
 public class Work {
-    private String work
+    private String name, location, company, age;
+    private String keyId;
+
+
 }
