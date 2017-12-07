@@ -16,7 +16,7 @@ public class AddWork extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_work);
-        name=(EditText)findViewById(R.id.work);
+        name=(EditText)findViewById(R.id.name);
         location=(EditText)findViewById(R.id.location);
         company=(EditText)findViewById(R.id.company);
         age=(EditText)findViewById(R.id.company);
