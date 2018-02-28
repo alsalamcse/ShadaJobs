@@ -22,7 +22,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view)
     {
       if (worker==view){
-          Intent i=new Intent(getBaseContext(),MainListActivity.class);
+          Intent i=new Intent(getBaseContext(),MainList2Activity.class);
           startActivity(i);
       }
       if (employer==view){

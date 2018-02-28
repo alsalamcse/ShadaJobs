@@ -16,7 +16,8 @@ import om.hsarme.shada.shadajobs.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CompanyFragment extends Fragment {
+public class
+CompanyFragment extends Fragment {
 
 
     public CompanyFragment() {

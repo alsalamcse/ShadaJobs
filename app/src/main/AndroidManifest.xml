@@ -24,7 +24,11 @@
             android:name=".EmployerList"
             android:label="@string/title_activity_employer_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddWork"></activity>
+        <activity android:name=".AddWork" />
+        <activity
+            android:name=".MainList2Activity"
+            android:label="@string/title_activity_main_list2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

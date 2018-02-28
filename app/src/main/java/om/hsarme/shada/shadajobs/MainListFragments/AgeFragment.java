@@ -17,7 +17,7 @@ import om.hsarme.shada.shadajobs.R;
  */
 public class AgeFragment extends Fragment {
     private ListView age1;
-    private EditText age2;
+    private EditText age;
 
 
     public AgeFragment() {
@@ -31,10 +31,7 @@ public class AgeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_age, container, false);
         age1=(ListView)view.findViewById(R.id.age1);
-        age2=(EditText)view.findViewById(R.id.age2);
-
-
-
+        age = (EditText) view.findViewById(R.id.age);
 
         return view;
     }

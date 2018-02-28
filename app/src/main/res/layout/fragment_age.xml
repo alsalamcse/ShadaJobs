@@ -15,7 +15,7 @@
         android:text="@string/Age" />
 
     <EditText
-        android:id="@+id/age2"
+        android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"

@@ -17,4 +17,5 @@
     <string name="location">location</string>
     <string name="company">company</string>
     <string name="age">age</string>
+    <string name="title_activity_main_list2">MainList2Activity</string>
 </resources>
