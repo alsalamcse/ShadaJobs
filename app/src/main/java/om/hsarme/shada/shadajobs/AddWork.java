@@ -1,10 +1,13 @@
 package om.hsarme.shada.shadajobs;
 
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import om.hsarme.shada.shadajobs.data.Work;
 
@@ -22,8 +25,14 @@ public class AddWork extends AppCompatActivity {
         age=(EditText)findViewById(R.id.company);
         add=(Button)findViewById(R.id.add);
 
-    }
+        add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                dataHandler();
+            }
+        });
 
+    }
 
     public void dataHandler(){
         String stName=name.getText().toString();
@@ -38,6 +47,6 @@ public class AddWork extends AppCompatActivity {
         work.setLocation(stLocation);
         work.setCompany(stCompany);
         work.setAge(stAge);
-
     }
+
 }
