@@ -1,9 +1,7 @@
 package om.hsarme.shada.shadajobs;
 
-import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -25,7 +23,7 @@ import om.hsarme.shada.shadajobs.MainListFragments.CompanyFragment;
 import om.hsarme.shada.shadajobs.MainListFragments.JobFragment;
 import om.hsarme.shada.shadajobs.MainListFragments.LocationFragment;
 
-public class MainListActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -41,6 +39,7 @@ public class MainListActivity extends AppCompatActivity {
     private JobFragment jobFragment;
     private LocationFragment locationFragment;
 
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -49,7 +48,7 @@ public class MainListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_list);
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,16 +60,11 @@ public class MainListActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(getBaseContext(),AddWork.class);
-                startActivity(i);
-
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -82,7 +76,7 @@ public class MainListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_list, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -129,9 +123,9 @@ public class MainListActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main_list, container, false);
-            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
@@ -150,35 +144,35 @@ public class MainListActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            if (position==0){
-                if (jobFragment==null)
-                    jobFragment=new JobFragment();
+            if (position == 0) {
+                if (jobFragment == null)
+                    jobFragment = new JobFragment();
                 return jobFragment;
             }
-            if (position==1){
-                if (locationFragment==null)
-                    locationFragment=new LocationFragment();
+            if (position == 1) {
+                if (locationFragment == null)
+                    locationFragment = new LocationFragment();
                 return locationFragment;
             }
-            if (position==2){
-                if (companyFragment==null)
-                    companyFragment=new CompanyFragment();
+            if (position == 2) {
+                if (companyFragment == null)
+                    companyFragment = new CompanyFragment();
                 return companyFragment;
             }
-            if (position==3){
-                if (ageFragment==null)
-                    ageFragment=new AgeFragment();
+            if (position == 3) {
+                if (ageFragment == null)
+                    ageFragment = new AgeFragment();
                 return ageFragment;
             }
-            return PlaceholderFragment.newInstance(position + 1);
-        }
+                return PlaceholderFragment.newInstance(position + 1);
+            }
+
+
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            return 4;
         }
-
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
