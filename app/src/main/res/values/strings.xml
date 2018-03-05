@@ -21,4 +21,11 @@
     <string name="City">City</string>
     <string name="Save">Save</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="Name">Name</string>
+    <string name="EnterYourName">Enter Your Name</string>
+    <string name="EnterYourAge">Enter Your Age</string>
+    <string name="EnterYourAge1">Enter Your Age</string>
+    <string name="Phone">Phone</string>
+    <string name="EnterYourAge2">Enter Your Age</string>
+    <string name="EnterYourPhone">Enter Your Phone</string>
 </resources>

@@ -33,20 +33,22 @@ public class AddWork extends AppCompatActivity {
         });
 
     }
+    //get data from the feilds
+    public void dataHandler() {
+        String stName = name.getText().toString();
+        String stLocation = location.getText().toString();
+        String stCompany = company.getText().toString();
+        String stAge = age.getText().toString();
 
-    public void dataHandler(){
-        String stName=name.getText().toString();
-        String stLocation=location.getText().toString();
-        String stCompany=company.getText().toString();
-        String stAge=age.getText().toString();
-
-        double dAge=Double.parseDouble(stAge);
-
-        Work work=new Work();
+        //data manipulation
+        double age = Double.parseDouble(stAge);
+        //building data object
+        Work work = new Work();
         work.setName(stName);
         work.setLocation(stLocation);
         work.setCompany(stCompany);
         work.setAge(stAge);
+
     }
 
 }

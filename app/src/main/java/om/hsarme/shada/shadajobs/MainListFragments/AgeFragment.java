@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import om.hsarme.shada.shadajobs.R;
 
@@ -19,7 +20,7 @@ import om.hsarme.shada.shadajobs.R;
  */
 public class AgeFragment extends Fragment{
         //implements  View.OnClickListener{
-    private ListView age1;
+    private TextView age1;
     private EditText age;
     private Button save;
 
@@ -33,7 +34,7 @@ public class AgeFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_age, container, false);
-        age1=(ListView)view.findViewById(R.id.age1);
+        age1=(TextView)view.findViewById(R.id.age1);
         age = (EditText) view.findViewById(R.id.age);
         save=(Button)view.findViewById(R.id.save);
         //save.setOnClickListener(this);
