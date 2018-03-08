@@ -29,4 +29,9 @@
     <string name="EnterYourAge2">Enter Your Age</string>
     <string name="EnterYourPhone">Enter Your Phone</string>
     <string name="Save1">Save</string>
+    <string name="Email" />
+    <string name="Name1">Name</string>
+    <string name="Name2">Name</string>
+    <string name="Email1">Email</string>
+    <string name="Password">Password</string>
 </resources>
