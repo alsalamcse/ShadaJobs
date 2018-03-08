@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import om.hsarme.shada.shadajobs.data.Work;
 
-public class AddWork extends AppCompatActivity {
+public class AddWork extends AppCompatActivity  {
     private EditText name, location, company, age;
     private Button add;
 
@@ -42,13 +42,13 @@ public class AddWork extends AppCompatActivity {
 
         //data manipulation
         double age = Double.parseDouble(stAge);
+
         //building data object
         Work work = new Work();
         work.setName(stName);
         work.setLocation(stLocation);
         work.setCompany(stCompany);
         work.setAge(stAge);
-
     }
 
 }
