@@ -20,17 +20,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import om.hsarme.shada.shadajobs.data.Work;
 
 public class AddWork extends AppCompatActivity  {
-    private EditText name, location, company, age;
+    private EditText etName, etLocation, etCompany, etAge, etPhone, etEmail;
     private Button add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_work);
-        name=(EditText)findViewById(R.id.name);
-        location=(EditText)findViewById(R.id.location);
-        company=(EditText)findViewById(R.id.company);
-        age=(EditText)findViewById(R.id.age);
+        etName=(EditText)findViewById(R.id.etName);
+        etLocation=(EditText)findViewById(R.id.etLocation);
+        etCompany=(EditText)findViewById(R.id.etCompany);
+        etAge=(EditText)findViewById(R.id.etAge);
+        etPhone=(EditText)findViewById(R.id.etPhone);
+        etEmail=(EditText)findViewById(R.id.etEmail);
         add=(Button)findViewById(R.id.add);
 
         add.setOnClickListener(new View.OnClickListener(){
@@ -43,13 +45,19 @@ public class AddWork extends AppCompatActivity  {
     }
     //get data from the feilds
     public void dataHandler() {
-        String stName = name.getText().toString();
-        String stLocation = location.getText().toString();
-        String stCompany = company.getText().toString();
-        String stAge = age.getText().toString();
+        String stName = etName.getText().toString();
+        String stLocation = etLocation.getText().toString();
+        String stCompany = etCompany.getText().toString();
+        String stAge = etAge.getText().toString();
+        String stPhone= etPhone.getText().toString();
+        String stEmail= etEmail.getText().toString();
 
         //data manipulation
         double age = Double.parseDouble(stAge);
+        double phone= Double.parseDouble(stPhone);
+
+
+
 
         //building data object
         Work work = new Work();
@@ -75,7 +83,7 @@ public class AddWork extends AppCompatActivity  {
 
         reference= FirebaseDatabase.getInstance().getReference();
         // saving data on the firebase database
-        reference.child(email).child("mylist").push().setValue(work)
+        reference.child("mylist").push().setValue(work)
                 // add completeListener
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                             @Override

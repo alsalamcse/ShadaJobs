@@ -162,7 +162,8 @@ public class MainActivity extends AppCompatActivity {
             if (position == 3) {
                 if (ageFragment == null)
                     ageFragment = new AgeFragment();
-                return ageFragment;
+                return
+                        ageFragment;
             }
                 return PlaceholderFragment.newInstance(position + 1);
             }

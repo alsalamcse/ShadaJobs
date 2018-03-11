@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Name" />
+        android:hint="@string/Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etEmail2"
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Email1" />
+        android:hint="@string/Email1"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etPass2"
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Password" />
+        android:hint="@string/Password"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnSave"

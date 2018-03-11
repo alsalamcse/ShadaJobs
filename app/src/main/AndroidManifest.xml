@@ -27,7 +27,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignUp" />
         <activity android:name=".LogInEmployer" />
-        <activity android:name=".SignUpEmployer"></activity>
+        <activity android:name=".SignUpEmployer" />
+        <activity android:name=".Results"></activity>
     </application>
 
 </manifest>

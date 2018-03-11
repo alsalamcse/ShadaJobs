@@ -3,4 +3,5 @@
     <item name="tabs" type="id" />
     <item name="section_label" type="id" />
     <item name="etPassword" type="id">etPassword</item>
+    <item name="etCompany" type="id" />
 </resources>
