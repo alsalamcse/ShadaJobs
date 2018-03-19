@@ -31,55 +31,35 @@ public class EmployerList extends AppCompatActivity {
     private TextView tvName, tvLocation, tvCompany, tvAge, tvEmail, tvPhone;
 
     private WorkAdapter workAdapter;
-    public EmployerList(){}
 
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view= inflater.inflate(R.layout.activity_employer_list, container, false);
-        tvName=(TextView)view.findViewById(R.id.tvName);
-        tvLocation=(TextView)view.findViewById(R.id.tvLocation);
-        tvCompany=(TextView)view.findViewById(R.id.tvCompany);
-        tvAge=(TextView)view.findViewById(R.id.etAge);
-        tvEmail=(TextView)view.findViewById(R.id.etEmail);
-        tvPhone=(TextView)view.findViewById(R.id.tvPhone);
-        lstTvWork=(ListView)view.findViewById(R.id.lstTvWork);
 
-
-        //todo בניית מתאם לרשימה
-        workAdapter=new WorkAdapter(getBaseContext(), R.layout.work_item);
-        // todo קביעת המתאם לרשימה
-        lstTvWork.setAdapter(workAdapter);
-
-        readAndListen();
-
-        return view;
-    }
 
     // read and listen data from firebase
     private  void readAndListen(){
-        //5. to get user email... user info
+        //to get user email... user info
         FirebaseAuth auth=FirebaseAuth.getInstance();
         FirebaseUser user=auth.getCurrentUser();
         String email=user.getEmail();
         email=email.replace('.','*');
-        //6. building data reference = data path = data address
+        //building data reference = data path = data address
         DatabaseReference reference;
         //todo לקבלת קישור למסד הנתונים שלנו
         //todo  קישור הינו לשורש של המסד הנתונים
         reference= FirebaseDatabase.getInstance().getReference();
-        //7. listening to data change
+        //listening to data change
         reference.child(email).child("mylist")
                 // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)//todo העתק מהניתונים שהורדנו
                     {
-                        //11. todo מחיקת כל הניתונים מהמתאם
+                        // todo מחיקת כל הניתונים מהמתאם
                         workAdapter.clear();
                         for (DataSnapshot ds:dataSnapshot.getChildren()) {
                             Work work=ds.getValue(Work.class);
                             Log.d("SL",work.toString());
-                            //12. todo הוספת עצם למתאם
+                            // todo הוספת עצם למתאם
                             workAdapter.add(work);
                         }
                     }
@@ -104,7 +84,21 @@ public class EmployerList extends AppCompatActivity {
         setContentView(R.layout.activity_employer_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        tvName=(TextView)findViewById(R.id.tvName);
+        tvLocation=(TextView)findViewById(R.id.tvLocation);
+        tvCompany=(TextView)findViewById(R.id.tvCompany);
+        tvAge=(TextView)findViewById(R.id.etAge);
+        tvEmail=(TextView)findViewById(R.id.etEmail);
+        tvPhone=(TextView)findViewById(R.id.tvPhone);
+        lstTvWork=(ListView)findViewById(R.id.lstTvWork);
 
+
+        //todo בניית מתאם לרשימה
+        workAdapter=new WorkAdapter(getBaseContext(), R.layout.work_item);
+        // todo קביעת המתאם לרשימה
+        lstTvWork.setAdapter(workAdapter);
+
+        readAndListen();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

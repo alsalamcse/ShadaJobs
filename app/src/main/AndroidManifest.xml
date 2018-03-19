@@ -28,7 +28,11 @@
         <activity android:name=".SignUp" />
         <activity android:name=".LogInEmployer" />
         <activity android:name=".SignUpEmployer" />
-        <activity android:name=".Results"></activity>
+        <activity android:name=".Results" />
+        <activity
+            android:name=".EmployerList2"
+            android:label="@string/title_activity_employer_list2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

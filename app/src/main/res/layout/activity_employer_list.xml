@@ -13,55 +13,55 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tvCompany"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Name" />
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/location" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/tvPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/company" />
 
         <TextView
             android:id="@+id/tvAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Age" />
 
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="@string/Email1" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Phone" />
 
     </LinearLayout>
+
 
     <ListView
         android:id="@+id/lstTvWork"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
-
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

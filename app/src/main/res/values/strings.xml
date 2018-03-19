@@ -34,4 +34,5 @@
     <string name="Name2">Name</string>
     <string name="Email1">Email</string>
     <string name="Password">Password</string>
+    <string name="title_activity_employer_list2">EmployerList2</string>
 </resources>
