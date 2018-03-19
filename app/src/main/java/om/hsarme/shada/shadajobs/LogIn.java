@@ -26,7 +26,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener
           startActivity(i);
       }
       if (employer==view){
-          Intent i=new Intent(getBaseContext(),EmployerList.class);
+          Intent i=new Intent(getBaseContext(),LogInEmployer.class);
           startActivity(i);
       }
     }

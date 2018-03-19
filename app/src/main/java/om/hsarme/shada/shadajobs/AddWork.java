@@ -56,9 +56,6 @@ public class AddWork extends AppCompatActivity  {
         double age = Double.parseDouble(stAge);
         double phone= Double.parseDouble(stPhone);
 
-
-
-
         //building data object
         Work work = new Work();
         work.setName(stName);

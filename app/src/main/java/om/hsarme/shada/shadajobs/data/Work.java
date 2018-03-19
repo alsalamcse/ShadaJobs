@@ -5,21 +5,49 @@ package om.hsarme.shada.shadajobs.data;
  */
 
 public class Work {
-    private String name, location, company, age;
+    private String name;
+    private String location;
+    private String company;
+    private String age;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    private String email;
+    private int phone;
     private boolean isTaken;
     private String keyId;
 
-    public Work(String name, String location, String company, String age){
+    public Work(String name, String location, String company, String age, String email, int phone){
         this.name=name;
         this.location=location;
         this.company=company;
+        this.age=age;
+        this.email=email;
+        this.phone=phone;
         isTaken=false;
     }
     public Work(){}
-    public Work(String name, String location, String company, String age,boolean isTaken,String keyId) {
+    public Work(String name, String location, String company, String age, String email, int phone, boolean isTaken,String keyId) {
         this.name = name;
         this.location = location;
         this.company = company;
+        this.age=age;
+        this.email=email;
+        this.phone=phone;
         this.isTaken = isTaken;
         this.keyId=keyId;
     }
@@ -71,4 +99,11 @@ public class Work {
     public void setKeyId(String keyId) {
         this.keyId = keyId;
     }
+
+    public String toString(){
+        return "Work{"+"name:"+name+","+"Location:"+location+","+
+                "Company:"+company+","+"Age"+age+","+"Email:"+email+","+
+                "Phone:"+phone+"}";
+    }
+
 }
