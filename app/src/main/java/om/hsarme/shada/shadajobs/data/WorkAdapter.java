@@ -56,6 +56,8 @@ public class WorkAdapter extends ArrayAdapter<Work> {
         itmLocation.setText(work.getLocation() + "");
         itmCompany.setText(work.getCompany() + "");
         itmAge.setText(work.getAge() +"");
+        itmEmail.setText(work.getEmail()+"");
+        itmPhone.setText(work.getPhone());
 
 
 

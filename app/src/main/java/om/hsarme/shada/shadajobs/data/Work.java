@@ -28,7 +28,6 @@ public class Work {
 
     private String email;
     private int phone;
-    private boolean isTaken;
     private String keyId;
 
     public Work(String name, String location, String company, String age, String email, int phone){
@@ -38,17 +37,16 @@ public class Work {
         this.age=age;
         this.email=email;
         this.phone=phone;
-        isTaken=false;
     }
     public Work(){}
-    public Work(String name, String location, String company, String age, String email, int phone, boolean isTaken,String keyId) {
+
+    public Work(String name, String location, String company, String age, String email, int phone,String keyId) {
         this.name = name;
         this.location = location;
         this.company = company;
         this.age=age;
         this.email=email;
         this.phone=phone;
-        this.isTaken = isTaken;
         this.keyId=keyId;
     }
 
@@ -84,13 +82,7 @@ public class Work {
         this.age = age;
     }
 
-    public boolean isTaken() {
-        return isTaken;
-    }
 
-    public void setTaken(boolean taken) {
-        isTaken = taken;
-    }
 
     public String getKeyId() {
         return keyId;
