@@ -8,8 +8,10 @@ public class Work {
     private String name;
     private String location;
     private String company;
-    private String age;
-
+    private int age;
+    private String email;
+    private int phone;
+    private String keyId;
     public String getEmail() {
         return email;
     }
@@ -26,29 +28,27 @@ public class Work {
         this.phone = phone;
     }
 
-    private String email;
-    private int phone;
-    private String keyId;
 
-    public Work(String name, String location, String company, String age, String email, int phone){
-        this.name=name;
-        this.location=location;
-        this.company=company;
-        this.age=age;
-        this.email=email;
-        this.phone=phone;
-    }
+
+//    public Work(String name, String location, String company, String age, String email, int phone){
+//        this.name=name;
+//        this.location=location;
+//        this.company=company;
+//        this.age=age;
+//        this.email=email;
+//        this.phone=phone;
+//    }
     public Work(){}
 
-    public Work(String name, String location, String company, String age, String email, int phone,String keyId) {
-        this.name = name;
-        this.location = location;
-        this.company = company;
-        this.age=age;
-        this.email=email;
-        this.phone=phone;
-        this.keyId=keyId;
-    }
+//    public Work(String name, String location, String company, String age, String email, int phone,String keyId) {
+//        this.name = name;
+//        this.location = location;
+//        this.company = company;
+//        this.age=age;
+//        this.email=email;
+//        this.phone=phone;
+//        this.keyId=keyId;
+//    }
 
     public String getName() {
         return name;
@@ -74,7 +74,7 @@ public class Work {
         this.company = company;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 

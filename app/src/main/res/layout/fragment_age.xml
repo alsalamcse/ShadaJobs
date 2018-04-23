@@ -2,17 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="om.hsarme.shada.shadajobs.MainListFragments.AgeFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/age1"
+    <SearchView
+        android:id="@+id/searchView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/Age" />
+        android:layout_weight="1" />
 
     <EditText
         android:id="@+id/age"
@@ -23,10 +22,4 @@
         android:hint="@string/MyAge"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/Save1" />
 </LinearLayout>
