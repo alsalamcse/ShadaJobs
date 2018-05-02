@@ -58,7 +58,7 @@ public class JobFragment extends Fragment {
             //todo  קישור הינו לשורש של המסד הנתונים
             reference = FirebaseDatabase.getInstance().getReference();
             //listening to data change
-            reference.child(email).child("mylist").orderByChild("location").equalTo(job.getText().toString())
+            reference.child(email).child("mylist").orderByChild("job").equalTo(job.getText().toString())
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

@@ -64,7 +64,7 @@ public class AgeFragment extends Fragment{
             //todo  קישור הינו לשורש של המסד הנתונים
             reference = FirebaseDatabase.getInstance().getReference();
             //listening to data change
-            reference.child(email).child("mylist").orderByChild("location").startAt(Integer.parseInt(age.getText().toString())
+            reference.child(email).child("mylist").orderByChild("age").startAt(Integer.parseInt(age.getText().toString()))
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

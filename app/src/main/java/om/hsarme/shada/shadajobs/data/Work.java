@@ -78,11 +78,9 @@ public class Work {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
-
-
 
     public String getKeyId() {
         return keyId;
