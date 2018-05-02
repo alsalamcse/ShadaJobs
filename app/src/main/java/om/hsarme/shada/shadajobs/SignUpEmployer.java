@@ -1,5 +1,6 @@
 package om.hsarme.shada.shadajobs;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +54,8 @@ public class SignUpEmployer extends AppCompatActivity implements View.OnClickLis
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(SignUpEmployer.this, "Authentication Successful.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(SignUpEmployer.this, EmployerList.class);
+                    startActivity(intent);
                     finish();
                 } else {
                     Toast.makeText(SignUpEmployer.this, "Authentication Failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

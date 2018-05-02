@@ -61,7 +61,7 @@ public class AddWork extends AppCompatActivity  {
         work.setName(stName);
         work.setLocation(stLocation);
         work.setCompany(stCompany);
-        work.setAge(stAge);
+        work.setAge(Integer.parseInt(stAge));
 
         // to get user email... user info
         FirebaseAuth auth=FirebaseAuth.getInstance();
