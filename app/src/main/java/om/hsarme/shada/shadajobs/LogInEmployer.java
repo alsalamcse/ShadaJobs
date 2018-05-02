@@ -34,6 +34,12 @@ public class LogInEmployer extends AppCompatActivity implements View.OnClickList
         btnUp.setOnClickListener(this);
         auth=FirebaseAuth.getInstance();
         firebaseUser=auth.getCurrentUser();
+        if (firebaseUser!=null&&firebaseUser.getEmail().length()>0){
+            Intent intent = new Intent(LogInEmployer.this, EmployerList.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
     private void dataHandler() {
