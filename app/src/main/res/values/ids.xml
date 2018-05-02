@@ -4,4 +4,5 @@
     <item name="section_label" type="id" />
     <item name="etPassword" type="id">etPassword</item>
     <item name="etCompany" type="id" />
+    <item name="city" type="id" />
 </resources>

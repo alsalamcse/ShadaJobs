@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,8 +33,9 @@ import om.hsarme.shada.shadajobs.data.WorkAdapter;
 public class
 CompanyFragment extends Fragment {
     private SearchView searchView;
-    private EditText company;
     private WorkAdapter workAdapter;
+    private ListView listView;
+
 
 
 
@@ -48,10 +50,24 @@ CompanyFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_company, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView);
-        company = (EditText) view.findViewById(R.id.company);
+        listView=(ListView)view.findViewById(R.id.listView);
+        workAdapter=new WorkAdapter(getContext(),R.layout.work_item);
+        listView.setAdapter(workAdapter);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                readAndListen(s);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
         return view;
     }
-    private void readAndListen() {
+    private void readAndListen(String s) {
         {
             //to get user email... user info
             FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -63,8 +79,9 @@ CompanyFragment extends Fragment {
             //todo לקבלת קישור למסד הנתונים שלנו
             //todo  קישור הינו לשורש של המסד הנתונים
             reference = FirebaseDatabase.getInstance().getReference();
+            // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child(email).child("mylist").orderByChild("company").equalTo(company.getText().toString())
+            reference.child("mylist").orderByChild("age").startAt(Integer.parseInt(s))
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

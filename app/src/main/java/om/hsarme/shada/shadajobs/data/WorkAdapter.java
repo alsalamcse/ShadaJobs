@@ -43,7 +43,7 @@ public class WorkAdapter extends ArrayAdapter<Work> {
 
 
 
-        TextView itmName = (TextView) view.findViewById(R.id.itmName);
+        TextView itmJob = (TextView) view.findViewById(R.id.itmJob);
         TextView itmLocation = (TextView) view.findViewById(R.id.itmLocation);
         TextView itmCompany = (TextView) view.findViewById(R.id.itmCompany);
         TextView itmAge = (TextView) view.findViewById(R.id.itmAge);
@@ -52,7 +52,7 @@ public class WorkAdapter extends ArrayAdapter<Work> {
 
 
         Work work = getItem(position);
-        itmName.setText(work.getName());
+        itmJob.setText(work.getJob());
         itmLocation.setText(work.getLocation() + "");
         itmCompany.setText(work.getCompany() + "");
         itmAge.setText(work.getAge() +"");

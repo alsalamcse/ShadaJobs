@@ -33,8 +33,10 @@ import om.hsarme.shada.shadajobs.data.WorkAdapter;
 public class AgeFragment extends Fragment{
         //implements  View.OnClickListener{
     private SearchView searchView;
-    private EditText age;
+
     private WorkAdapter workAdapter;
+    private ListView listView;
+
 
     public AgeFragment() {
         // Required empty public constructor
@@ -47,11 +49,24 @@ public class AgeFragment extends Fragment{
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_age, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView);
-        age = (EditText) view.findViewById(R.id.age);
+        listView=(ListView)view.findViewById(R.id.listView);
+        workAdapter=new WorkAdapter(getContext(),R.layout.work_item);
+        listView.setAdapter(workAdapter);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                readAndListen(s);
+                return true;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });
         return view;
     }
-    private void readAndListen() {
+    private void readAndListen(String s) {
         {
             //to get user email... user info
             FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -63,8 +78,9 @@ public class AgeFragment extends Fragment{
             //todo לקבלת קישור למסד הנתונים שלנו
             //todo  קישור הינו לשורש של המסד הנתונים
             reference = FirebaseDatabase.getInstance().getReference();
+           // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child(email).child("mylist").orderByChild("age").startAt(Integer.parseInt(age.getText().toString()))
+            reference.child("mylist").orderByChild("age").startAt(Integer.parseInt(s))
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

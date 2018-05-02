@@ -20,14 +20,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import om.hsarme.shada.shadajobs.data.Work;
 
 public class AddWork extends AppCompatActivity  {
-    private EditText etName, etLocation, etCompany, etAge, etPhone, etEmail;
+    private EditText etJob, etLocation, etCompany, etAge, etPhone, etEmail;
     private Button add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_work);
-        etName=(EditText)findViewById(R.id.etName);
+        etJob=(EditText)findViewById(R.id.etJob);
         etLocation=(EditText)findViewById(R.id.etLocation);
         etCompany=(EditText)findViewById(R.id.etCompany);
         etAge=(EditText)findViewById(R.id.etAge);
@@ -45,7 +45,7 @@ public class AddWork extends AppCompatActivity  {
     }
     //get data from the feilds
     public void dataHandler() {
-        String stName = etName.getText().toString();
+        String stJob = etJob.getText().toString();
         String stLocation = etLocation.getText().toString();
         String stCompany = etCompany.getText().toString();
         String stAge = etAge.getText().toString();
@@ -58,7 +58,7 @@ public class AddWork extends AppCompatActivity  {
 
         //building data object
         Work work = new Work();
-        work.setName(stName);
+        work.setJob(stJob);
         work.setLocation(stLocation);
         work.setCompany(stCompany);
         work.setAge(Integer.parseInt(stAge));
@@ -69,6 +69,7 @@ public class AddWork extends AppCompatActivity  {
         String email=user.getEmail();
         email=email.replace('.','*');
 
+        work.setEmail(email);
 
 
 
@@ -80,7 +81,9 @@ public class AddWork extends AppCompatActivity  {
 
         reference= FirebaseDatabase.getInstance().getReference();
         // saving data on the firebase database
-        reference.child("mylist").push().setValue(work)
+        String key=  reference.child("mylist").push().getKey();
+        work.setKeyId(key);
+        reference.child("mylist").child(key).setValue(work)
                 // add completeListener
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                             @Override

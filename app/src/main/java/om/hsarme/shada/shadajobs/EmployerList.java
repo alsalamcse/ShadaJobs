@@ -34,6 +34,40 @@ public class EmployerList extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_employer_list);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+//        tvName=(TextView)findViewById(R.id.tvName);
+//        tvLocation=(TextView)findViewById(R.id.tvLocation);
+//        tvCompany=(TextView)findViewById(R.id.tvCompany);
+//        tvAge=(TextView)findViewById(R.id.etAge);
+//        tvEmail=(TextView)findViewById(R.id.etEmail);
+//        tvPhone=(TextView)findViewById(R.id.tvPhone);
+        lstTvWork=(ListView)findViewById(R.id.lstTvWork);
+
+
+        //todo בניית מתאם לרשימה
+        workAdapter=new WorkAdapter(getBaseContext(), R.layout.work_item);
+        // todo קביעת המתאם לרשימה
+        lstTvWork.setAdapter(workAdapter);
+
+        readAndListen();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent i=new Intent(getBaseContext(),AddWork.class);
+                startActivity(i);
+            }
+        });
+    }
+
 
     // read and listen data from firebase
     private  void readAndListen(){
@@ -48,7 +82,7 @@ public class EmployerList extends AppCompatActivity {
         //todo  קישור הינו לשורש של המסד הנתונים
         reference= FirebaseDatabase.getInstance().getReference();
         //listening to data change
-        reference.child(email).child("mylist")
+        reference.child("mylist").orderByChild("email").equalTo(email)
                 // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -73,39 +107,6 @@ public class EmployerList extends AppCompatActivity {
 
 
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employer_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        tvName=(TextView)findViewById(R.id.tvName);
-        tvLocation=(TextView)findViewById(R.id.tvLocation);
-        tvCompany=(TextView)findViewById(R.id.tvCompany);
-        tvAge=(TextView)findViewById(R.id.etAge);
-        tvEmail=(TextView)findViewById(R.id.etEmail);
-        tvPhone=(TextView)findViewById(R.id.tvPhone);
-        lstTvWork=(ListView)findViewById(R.id.lstTvWork);
-
-
-        //todo בניית מתאם לרשימה
-        workAdapter=new WorkAdapter(getBaseContext(), R.layout.work_item);
-        // todo קביעת המתאם לרשימה
-        lstTvWork.setAdapter(workAdapter);
-
-        readAndListen();
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent i=new Intent(getBaseContext(),AddWork.class);
-                startActivity(i);
-            }
-        });
-    }
 
 
 }

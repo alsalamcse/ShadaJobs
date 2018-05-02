@@ -5,32 +5,38 @@ package om.hsarme.shada.shadajobs.data;
  */
 
 public class Work {
-    private String name;
+    private String job;
     private String location;
     private String company;
     private int age;
     private String email;
-    private int phone;
+    private String phone;
     private String keyId;
     public String getEmail() {
         return email;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-
-
-//    public Work(String name, String location, String company, String age, String email, int phone){
+    //    public Work(String name, String location, String company, String age, String email, int phone){
 //        this.name=name;
 //        this.location=location;
 //        this.company=company;
@@ -50,13 +56,7 @@ public class Work {
 //        this.keyId=keyId;
 //    }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getLocation() {
         return location;
@@ -91,8 +91,9 @@ public class Work {
         this.keyId = keyId;
     }
 
+
     public String toString(){
-        return "Work{"+"name:"+name+","+"Location:"+location+","+
+        return "Work{"+"job:"+job+","+"Location:"+location+","+
                 "Company:"+company+","+"Age"+age+","+"Email:"+email+","+
                 "Phone:"+phone+"}";
     }

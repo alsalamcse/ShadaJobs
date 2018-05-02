@@ -1,25 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    tools:context="om.hsarme.shada.shadajobs.MainListFragments.AgeFragment">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="om.hsarme.shada.shadajobs.MainListFragments.JobFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/age"
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--<EditText-->
+            <!--android:id="@+id/age"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:ems="10"-->
+            <!--android:hint="@string/MyAge"-->
+            <!--android:inputType="textPersonName" />-->
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/MyAge"
-        android:inputType="textPersonName" />
-
+        android:layout_height="match_parent" />
 </LinearLayout>
