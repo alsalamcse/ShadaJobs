@@ -49,7 +49,7 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(LogIn.this, "signIn Successful.", Toast.LENGTH_SHORT).show();
-                    Intent i=new Intent(getBaseContext(),MainActivity.class);
+                    Intent i=new Intent(getBaseContext(),Main2Activity.class);
                     startActivity(i);
                     finish();
                 } else {

@@ -36,4 +36,5 @@
     <string name="Password">Password</string>
     <string name="title_activity_employer_list2">EmployerList2</string>
     <string name="job">type of work</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

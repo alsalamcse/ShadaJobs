@@ -1,5 +1,6 @@
 package om.hsarme.shada.shadajobs;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,8 @@ public class AddWork extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 dataHandler();
+                Intent i1= new Intent(getBaseContext(), EmployerList.class);
+                startActivity(i1);
             }
         });
 

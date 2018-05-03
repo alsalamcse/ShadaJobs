@@ -71,6 +71,8 @@ public class SignUpEmployer extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (view == btnSave) {
             dataHandler();
+            Intent i1= new Intent(getBaseContext(), EmployerList.class);
+            startActivity(i1);
         }
     }
 }
