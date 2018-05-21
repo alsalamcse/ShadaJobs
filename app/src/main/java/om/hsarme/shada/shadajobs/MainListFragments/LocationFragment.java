@@ -48,6 +48,8 @@ public class LocationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView);
         listView=(ListView)view.findViewById(R.id.listView);
+        workAdapter=new WorkAdapter(getContext(),R.layout.work_item);
+        listView.setAdapter(workAdapter);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -78,7 +80,7 @@ public class LocationFragment extends Fragment {
             reference = FirebaseDatabase.getInstance().getReference();
             // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child("mylist").orderByChild("age").startAt(Integer.parseInt(s))
+            reference.child("mylist").orderByChild("age").equalTo(s)
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

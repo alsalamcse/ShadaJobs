@@ -74,7 +74,7 @@ public class JobFragment extends Fragment {
             reference = FirebaseDatabase.getInstance().getReference();
             // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child("mylist").orderByChild("age").startAt(Integer.parseInt(s))
+            reference.child("mylist").orderByChild("age").equalTo(s)
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override

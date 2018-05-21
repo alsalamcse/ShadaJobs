@@ -31,9 +31,7 @@ import om.hsarme.shada.shadajobs.data.WorkAdapter;
  * A simple {@link Fragment} subclass.
  */
 public class AgeFragment extends Fragment{
-        //implements  View.OnClickListener{
     private SearchView searchView;
-
     private WorkAdapter workAdapter;
     private ListView listView;
 
@@ -80,7 +78,7 @@ public class AgeFragment extends Fragment{
             reference = FirebaseDatabase.getInstance().getReference();
            // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child("mylist").orderByChild("age").startAt(Integer.parseInt(s))
+            reference.child("mylist").orderByChild("age").equalTo(Integer.parseInt(s))
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override
