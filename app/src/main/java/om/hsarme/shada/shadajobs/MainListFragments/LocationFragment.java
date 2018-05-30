@@ -1,16 +1,20 @@
 package om.hsarme.shada.shadajobs.MainListFragments;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,6 +54,27 @@ public class LocationFragment extends Fragment {
         listView=(ListView)view.findViewById(R.id.listView);
         workAdapter=new WorkAdapter(getContext(),R.layout.work_item);
         listView.setAdapter(workAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                final String[] a={"SMS","Call"};
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("nnnn");
+                    builder.setCancelable(true);
+                builder.setSingleChoiceItems(a, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getContext(), a[i], Toast.LENGTH_SHORT).show();
+                    }
+                });
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
+
+
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -80,7 +105,7 @@ public class LocationFragment extends Fragment {
             reference = FirebaseDatabase.getInstance().getReference();
             // String txt=searchView.getQuery().toString();
             //listening to data change
-            reference.child("mylist").orderByChild("age").equalTo(s)
+            reference.child("mylist").orderByChild("location").equalTo(s)
                     // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
                     .addValueEventListener(new ValueEventListener() {
                         @Override
