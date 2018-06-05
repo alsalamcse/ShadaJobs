@@ -60,7 +60,7 @@ public class LocationFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                final String[] a={"SMS","Call","DELETE"};
+                final String[] a={"SMS","Call"};
                 final Work w= (Work) adapterView.getItemAtPosition(i);
 
 
@@ -73,7 +73,6 @@ public class LocationFragment extends Fragment {
                         Toast.makeText(getContext(), a[i], Toast.LENGTH_SHORT).show();
                         if(i==0){
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            //intent.addCategory(Intent.CATEGORY_APP_MESSAGING);
                             intent.setData(Uri.parse("sms:"+w.getPhone()));
                             startActivity(intent);
                         }
@@ -82,10 +81,7 @@ public class LocationFragment extends Fragment {
                             intent.setData(Uri.parse("tel:"+w.getPhone()));
                             startActivity(intent);
                         }
-                        if (i==2){
 
-
-                        }
                     }
                 });
                     AlertDialog dialog=builder.create();

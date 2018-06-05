@@ -2,17 +2,23 @@ package om.hsarme.shada.shadajobs.MainListFragments;
 
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,6 +56,42 @@ public class CompanyFragment extends Fragment {
         listView=(ListView)view.findViewById(R.id.listView);
         workAdapter=new WorkAdapter(getContext(),R.layout.work_item);
         listView.setAdapter(workAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                final String[] a={"SMS","Call"};
+                final Work w= (Work) adapterView.getItemAtPosition(i);
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("nnnn");
+                builder.setCancelable(true);
+                builder.setSingleChoiceItems(a, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getContext(), a[i], Toast.LENGTH_SHORT).show();
+                        if(i==0){
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(Uri.parse("sms:"+w.getPhone()));
+                            startActivity(intent);
+                        }
+                        if (i==1){
+                            Intent intent = new Intent(Intent.ACTION_DIAL);
+                            intent.setData(Uri.parse("tel:"+w.getPhone()));
+                            startActivity(intent);
+                        }
+
+                    }
+                });
+                AlertDialog dialog=builder.create();
+                dialog.show();
+
+
+            }
+        });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {

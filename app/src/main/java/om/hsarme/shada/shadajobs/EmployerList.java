@@ -62,6 +62,60 @@ public class EmployerList extends AppCompatActivity {
         // todo קביעת המתאם לרשימה
         lstTvWork.setAdapter(workAdapter);
 
+        lstTvWork.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                final String[] a={"update","DELETE"};
+                final Work w= (Work) adapterView.getItemAtPosition(i);
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(EmployerList.this);
+                builder.setTitle("nnnn");
+                builder.setCancelable(true);
+                builder.setSingleChoiceItems(a, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(EmployerList.this, a[i], Toast.LENGTH_SHORT).show();
+                        if(i==0){
+//                            Intent intent = new Intent(Intent.ACTION_VIEW);
+//                            intent.setData(Uri.parse("sms:"+w.getPhone()));
+//                            startActivity(intent);
+                        }
+//                        if (i==1){
+//                            Intent intent = new Intent(Intent.ACTION_DIAL);
+//                            intent.setData(Uri.parse("tel:"+w.getPhone()));
+//                            startActivity(intent);
+//                        }
+                        if (i==1){
+                            DatabaseReference reference;
+                            //todo לקבלת קישור למסד הנתונים שלנו
+                            //todo  קישור הינו לשורש של המסד הנתונים
+
+                            reference= FirebaseDatabase.getInstance().getReference();
+                            reference.child("mylist").child(w.getKeyId()).removeValue(new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                    if (databaseError==null)
+                                    {
+                                        Toast.makeText(EmployerList.this, "delete successful", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+                                        Toast.makeText(EmployerList.this, "delete failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+                AlertDialog dialog=builder.create();
+                dialog.show();
+
+
+            }
+        });
+
         readAndListen();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -112,106 +166,14 @@ public class EmployerList extends AppCompatActivity {
                     }
                 });
     }
-     listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-
-    {
-        @Override
-        public void onItemClick (AdapterView < ? > adapterView, View view,int i, long l){
-
-        final String[] a = {"SMS", "Call", "DELETE"};
-        final Work w = (Work) adapterView.getItemAtPosition(i);
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("nnnn");
-        builder.setCancelable(true);
-        builder.setSingleChoiceItems(a, 0, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getContext(), a[i], Toast.LENGTH_SHORT).show();
-                if (i == 0) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    //intent.addCategory(Intent.CATEGORY_APP_MESSAGING);
-                    intent.setData(Uri.parse("sms:" + w.getPhone()));
-                    startActivity(intent);
-                }
-                if (i == 1) {
-                    Intent intent = new Intent(Intent.ACTION_DIAL);
-                    intent.setData(Uri.parse("tel:" + w.getPhone()));
-                    startActivity(intent);
-                }
-                if (i == 2) {
-
-
-                }
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-
-
-    }
-    });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
-
-    {
-        @Override
-        public boolean onQueryTextSubmit (String s){
-        readAndListen(s);
-        return true;
-    }
-
-        @Override
-        public boolean onQueryTextChange (String s){
-        return false;
-    }
-    }
-        return view;
-};
-
-
-    private void readAndListen(String s) {
-        {
-            //to get user email... user info
-            FirebaseAuth auth = FirebaseAuth.getInstance();
-            FirebaseUser user = auth.getCurrentUser();
-            String email = user.getEmail();
-            email = email.replace('.', '*');
-            //building data reference = data path = data address
-            DatabaseReference reference;
-            //todo לקבלת קישור למסד הנתונים שלנו
-            //todo  קישור הינו לשורש של המסד הנתונים
-            reference = FirebaseDatabase.getInstance().getReference();
-            // String txt=searchView.getQuery().toString();
-            //listening to data change
-            reference.child("mylist").orderByChild("location").equalTo(s)
-                    // todo בפעם הראשונה שמופעל המאזין מקבלים העתק לכל הניתונים תחת כתובת זו
-                    .addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot)//todo העתק מהניתונים שהורדנו
-                        {
-                            // todo מחיקת כל הניתונים מהמתאם
-                            workAdapter.clear();
-                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                                Work work = ds.getValue(Work.class);
-                                Log.d("SL", work.toString());
-                                // todo הוספת עצם למתאם
-                                workAdapter.add(work);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-        }
-
-
-    }
-
-
-
-
 
 }
+
+
+
+
+
+
+
+
+
