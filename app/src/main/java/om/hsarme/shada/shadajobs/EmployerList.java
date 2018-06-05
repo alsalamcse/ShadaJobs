@@ -78,9 +78,9 @@ public class EmployerList extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(EmployerList.this, a[i], Toast.LENGTH_SHORT).show();
                         if(i==0){
-//                            Intent intent = new Intent(Intent.ACTION_VIEW);
-//                            intent.setData(Uri.parse("sms:"+w.getPhone()));
-//                            startActivity(intent);
+                            Intent intent = new Intent(getBaseContext(),UpdateWork.class);
+                            intent.putExtra("work",w);
+                            startActivity(intent);
                         }
 //                        if (i==1){
 //                            Intent intent = new Intent(Intent.ACTION_DIAL);

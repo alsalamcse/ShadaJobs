@@ -1,11 +1,9 @@
 package om.hsarme.shada.shadajobs;
 
 import android.content.Intent;
-import android.os.StrictMode;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import om.hsarme.shada.shadajobs.data.Work;
 
-public class AddWork extends AppCompatActivity  {
+public class UpdateWork extends AppCompatActivity  {
     private EditText etJob, etLocation, etCompany, etAge, etPhone, etEmail;
     private Button add;
 
@@ -34,11 +32,19 @@ public class AddWork extends AppCompatActivity  {
         etAge=(EditText)findViewById(R.id.etAge);
         etPhone=(EditText)findViewById(R.id.etPhone);
         add=(Button)findViewById(R.id.add);
+        // este5raj intent elle wesel mn lshashe elle abel"employeerList"
+        Intent i =getIntent();
+        final Work w = (Work) i.getExtras().get("work");
+        etJob.setText(w.getJob());
+        etLocation.setText(w.getLocation());
+        etCompany.setText(w.getCompany());
+        etAge.setText(w.getAge()+"");
+        etPhone.setText(w.getPhone()+"");
 
         add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                dataHandler();
+                dataHandler(w.getKeyId());
                 Intent i1= new Intent(getBaseContext(), EmployerList.class);
                 startActivity(i1);
             }
@@ -46,19 +52,18 @@ public class AddWork extends AppCompatActivity  {
 
     }
     //get data from the feilds
-    public void dataHandler() {
+    public void dataHandler(String KeyId) {
         String stJob = etJob.getText().toString();
         String stLocation = etLocation.getText().toString();
         String stCompany = etCompany.getText().toString();
         String stAge = etAge.getText().toString();
         String stPhone= etPhone.getText().toString();
 
-        //data manipulation
-        double age = Double.parseDouble(stAge);
-        double phone= Double.parseDouble(stPhone);
+
 
         //building data object
-        Work work = new Work();
+       Work work= new Work();
+        work.setKeyId(KeyId);
         work.setJob(stJob);
         work.setLocation(stLocation);
         work.setCompany(stCompany);
@@ -82,19 +87,18 @@ public class AddWork extends AppCompatActivity  {
 
         reference= FirebaseDatabase.getInstance().getReference();
         // saving data on the firebase database
-        String key=  reference.child("mylist").push().getKey();
-        work.setKeyId(key);
-        reference.child("mylist").child(key).setValue(work)
+
+        reference.child("mylist").child(KeyId).setValue(work)
                 // add completeListener
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful())
                                 {
-                                    Toast.makeText(AddWork.this, "Add Work Successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UpdateWork.this, "Add Work Successful", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
-                                    Toast.makeText(AddWork.this, "Add Work failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UpdateWork.this, "Add Work failed", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }

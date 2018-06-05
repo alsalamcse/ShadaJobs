@@ -1,10 +1,12 @@
 package om.hsarme.shada.shadajobs.data;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 26/11/2017.
  */
 
-public class Work {
+public class Work implements Serializable{//todo
     private String job;
     private String location;
     private String company;
