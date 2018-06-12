@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import om.hsarme.shada.shadajobs.data.Work;
 
 public class AddWork extends AppCompatActivity  {
-    private EditText etJob, etLocation, etCompany, etAge, etPhone, etEmail;
+    private EditText etJob, etLocation, etCompany, etAge, etPhone;
     private Button add;
 
     @Override

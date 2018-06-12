@@ -52,12 +52,12 @@ public class WorkAdapter extends ArrayAdapter<Work> {
 
 
         Work work = getItem(position);
-        itmJob.setText(work.getJob());
-        itmLocation.setText(work.getLocation() + "");
-        itmCompany.setText(work.getCompany() + "");
-        itmAge.setText(work.getAge() +"");
-        itmEmail.setText(work.getEmail()+"");
-        itmPhone.setText(work.getPhone());
+        itmJob.setText("Job:"+work.getJob());
+        itmLocation.setText("Location:"+work.getLocation() + "");
+        itmCompany.setText("Company:"+work.getCompany() + "");
+        itmAge.setText("Age:"+work.getAge() +"");
+        itmEmail.setText("Email:"+work.getEmail()+"");
+        itmPhone.setText("Phone:"+work.getPhone());
 
 
 

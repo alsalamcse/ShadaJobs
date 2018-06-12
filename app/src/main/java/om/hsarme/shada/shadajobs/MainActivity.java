@@ -23,6 +23,9 @@ import om.hsarme.shada.shadajobs.MainListFragments.CompanyFragment;
 import om.hsarme.shada.shadajobs.MainListFragments.JobFragment;
 import om.hsarme.shada.shadajobs.MainListFragments.LocationFragment;
 
+/**
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -33,7 +36,13 @@ public class MainActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
+    /**
+     *
+     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    /**
+     *
+     */
     private AgeFragment ageFragment;
     private CompanyFragment companyFragment;
     private JobFragment jobFragment;
